@@ -1,0 +1,40 @@
+<html layout:decorator="/admin/adminLayout">
+<div layout:fragment="content">
+    <form method="post" name="comment_form" id="comment_form" th:action="@{/admin/enrol/update}" role="form">
+        <tr>
+            <td><a><label for="message">Student ID</label></a></td>
+            <td><input type="text" id="student_id" name="student_id" th:value="${student.id}" readonly="true" /></td>
+            <td><a><label for="message">Student Name</label></a></td>
+            <td><input type="text" id="student_name" name="student_name" th:value="${student.username}" readonly="true" /></td>
+            <td><a><label for="message">Program</label></a></td>
+            <td><input type="text" id="program" name="program" th:value="${student.program}" readonly="true" /></td>
+        </tr>
+
+        <table class="table table-striped" id="units_lists">
+            <thead>
+            <tr>
+                <th>Unit ID</th>
+                <th>Unit Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="stuunit : ${stuunits}">
+                <td class="id" data-th-text="${stuunit.getUnit().getId()}"></td>
+                <td class="name" data-th-text="${stuunit.getUnit().getName()}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <td><label for="message">Add Unit</label></td>
+            <td><select id="unit" name="unit" class="form-control">
+                <option th:each="optUnit : ${units}"
+                        th:value="${optUnit.id} + ':' + ${optUnit.name}"
+                        th:text="${optUnit.id} + ':' + ${optUnit.name}"/>
+            </select>
+            </td>
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/admin/enrol">Cancel</a>
+    </form>
+</div>
+</html>

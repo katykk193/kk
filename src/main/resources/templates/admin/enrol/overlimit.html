@@ -1,0 +1,10 @@
+<html layout:decorator="/admin/adminLayout">
+
+<div layout:fragment="content">
+
+    <div style="font-size: xx-large"><p>The number of units is over limit!</p></div>
+    <div style="font-size: xx-large"><p>Can add </p>
+        <p th:value="${unitLimit}>units only!</p></div>
+    <a class="btn btn-primary" href="/admin/enrol">Return</a>
+    </div>
+</html>

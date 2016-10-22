@@ -1,0 +1,22 @@
+<html layout:decorator="/admin/adminLayout">
+<div layout:fragment="content">
+    <form method="post" name="comment_form" id="comment_form" action="/lecturer/mail/send" role="form">
+        <div class="form-group">
+            <!--<tr>-->
+                <!--<td>UnitID</td>-->
+                <!--<td><input type="text" id="unit_id" name="unit_id" class="form-control"/></td>-->
+            <!--</tr>-->
+            <tr>
+                <td>Titile</td>
+                <td><input type="text" id="title" name="title" class="form-control"/></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td><input type="text" id="content" name="content" class="form-control"/></td>
+            </tr>
+        </div>
+        <button type="submit" id="sendmail" class="btn btn-primary">Send</button>
+        <a class="btn btn-primary" href="/lecturer/mail/list">Cancel</a>
+    </form>
+</div>
+</html>
